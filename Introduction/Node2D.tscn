@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CaminhoDeSave" type="TextEdit" parent="."]
+margin_left = 40.0
+margin_top = 248.0
+margin_right = 325.0
+margin_bottom = 268.0
+rect_scale = Vector2( 2.5, 2.5 )
+hint_tooltip = "Inserir caminho de arquivo"
+text = "C:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="evalInput" type="TextEdit" parent="."]
+margin_left = 48.0
+margin_top = 520.0
+margin_right = 333.0
+margin_bottom = 540.0
+rect_scale = Vector2( 2.5, 2.5 )
+hint_tooltip = "Inserir caminho de arquivo"
+text = "var cinco = 5;"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="incButton" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 205.0
+margin_bottom = 56.0
+rect_scale = Vector2( 2, 2 )
+text = "Clique para incrementar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="loadData" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 184.0
+margin_right = 585.0
+margin_bottom = 208.0
+rect_scale = Vector2( 2, 2 )
+text = "Carregar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="saveData" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 184.0
+margin_right = 209.0
+margin_bottom = 208.0
+rect_scale = Vector2( 2, 2 )
+text = "Salvar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="evalButton" type="Button" parent="."]
+margin_left = 776.0
+margin_top = 520.0
+margin_right = 892.0
+margin_bottom = 544.0
+rect_scale = Vector2( 2, 2 )
+text = "Eval()"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="loadFile" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 320.0
+margin_right = 585.0
+margin_bottom = 344.0
+rect_scale = Vector2( 2, 2 )
+text = "Carregar Arquivo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="saveFile" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 320.0
+margin_right = 209.0
+margin_bottom = 344.0
+rect_scale = Vector2( 2, 2 )
+text = "Salvar Arquivo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="infoData" type="Label" parent="."]
+margin_left = 408.0
+margin_top = 40.0
+margin_right = 708.0
+margin_bottom = 116.0
+rect_scale = Vector2( 2, 2 )
+text = "Quantidade: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_top = 40.0
+margin_right = 512.0
+margin_bottom = 320.0
+rect_scale = Vector2( 2, 2 )
+window_title = "Abrir um Arquivo"
+mode = 0
+access = 2
+current_dir = "/"
+current_path = "/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="decButton" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 104.0
+margin_right = 209.0
+margin_bottom = 128.0
+rect_scale = Vector2( 2, 2 )
+text = "Clique para decrementar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="incButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="loadData" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="saveData" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="evalButton" to="." method="_on_saveData2_pressed"]
+[connection signal="pressed" from="loadFile" to="." method="_on_loadFile_pressed"]
+[connection signal="pressed" from="saveFile" to="." method="_on_saveFile_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="pressed" from="decButton" to="." method="_on_Button2_pressed"]
