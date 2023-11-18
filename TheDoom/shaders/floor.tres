@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://shaders/structs.shader" type="Shader" id=1]
+[ext_resource path="res://textures/testeImg.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/texture_offset = null
+shader_param/texture_scale = Vector2( 1, 1 )
+shader_param/m_color = Color( 1, 1, 1, 1 )
+shader_param/fog_color = Color( 1, 1, 1, 0 )
+shader_param/fog_distance = 75.0
+shader_param/upper_color = null
+shader_param/upper_m_grad = null
+shader_param/use_upper_color = null
+shader_param/downer_color = null
+shader_param/downer_m_grad = null
+shader_param/use_downer_color = null
+shader_param/tex = ExtResource( 2 )

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/main_game/floor_mesh.gd" type="Script" id=1]
+[ext_resource path="res://shaders/background_sky.tres" type="Material" id=2]
+
+[node name="MeshInstance" type="MeshInstance"]
+material_override = ExtResource( 2 )
+script = ExtResource( 1 )

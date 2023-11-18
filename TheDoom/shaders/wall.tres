@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://shaders/structs.shader" type="Shader" id=1]
+[ext_resource path="res://textures/SFLATAJ.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/texture_offset = null
+shader_param/texture_scale = Vector2( 2, 2 )
+shader_param/m_color = Color( 1, 1, 1, 1 )
+shader_param/fog_color = Color( 1, 1, 1, 0 )
+shader_param/fog_distance = 75.0
+shader_param/upper_color = Color( 1, 1, 1, 0.572549 )
+shader_param/upper_m_grad = 1.0
+shader_param/use_upper_color = true
+shader_param/downer_color = Color( 0, 0, 0, 0.92549 )
+shader_param/downer_m_grad = 1.0
+shader_param/use_downer_color = true
+shader_param/tex = ExtResource( 2 )

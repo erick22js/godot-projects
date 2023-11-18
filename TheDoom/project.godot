@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+}
+
+[application]
+
+config/name="TheDoom"
+run/main_scene="res://scenes/level_maker.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+InputsGame="*res://scripts/main_game/inputs.gd"
+GlobalData="*res://scripts/global_data.gd"
+Math="*res://scripts/util/math.gd"
+MapHanddler="*res://scripts/editor/map_handdler.gd"
+GenerateObjects="*res://scripts/main_game/generate_objects.gd"
+SceneMath="*res://scripts/util/scene_math.gd"
+
+[display]
+
+window/size/width=512
+window/size/height=320
+window/size/resizable=false
+window/size/test_width=512
+window/size/test_height=320
+window/stretch/mode="2d"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=3
+2d/snapping/use_gpu_pixel_snap=true
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+quality/shadows/filter_mode=0
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
+quality/shading/force_vertex_shading=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,62 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://textures/mountains.png" type="Texture" id=1]
+[ext_resource path="res://scripts/enviorment/sky.gd" type="Script" id=2]
+[ext_resource path="res://textures/sky.png" type="Texture" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform sampler2D background_texture;
+uniform sampler2D sky_texture;
+uniform vec2 rotate;
+uniform float background_size;
+uniform float background_offset_y;
+uniform float sky_size;
+
+
+void fragment(){
+	
+	vec2 p = SCREEN_UV;
+	vec2 c = SCREEN_UV*2.-1.;
+	
+	float PI = 3.141527;
+	
+	//Sky rendering
+	vec2 uv_sky = SCREEN_UV*sky_size;
+	uv_sky.y = uv_sky.y*2.-1.;
+	uv_sky.x -= .5;
+	uv_sky.x *= 1.5-uv_sky.y*.5;
+	uv_sky.x += rotate.x/PI*1.5;
+	
+	vec3 colorSky = texture(sky_texture, uv_sky).xyz;
+	
+	//Background rendering
+	vec2 uv_bk = SCREEN_UV*background_size;
+	uv_bk.x += rotate.x/3.141527*4.5;
+	uv_bk.y -= (background_size-background_offset_y)*.5;
+	uv_bk.y *= -1.;
+	vec4 colorBack;
+	if(uv_bk.y<-.95)
+		colorBack = vec4(0,0,0,0);
+	else if(uv_bk.y>0.){
+		colorBack = texture(background_texture, vec2(uv_bk.x, 0));
+	}
+	else
+		colorBack = texture(background_texture, uv_bk);
+	
+	ALBEDO = colorBack.a==0.?colorSky:colorBack.xyz;
+	
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/rotate = Vector2( 0, 0 )
+shader_param/background_size = 3.0
+shader_param/background_offset_y = 1.0
+shader_param/sky_size = 1.0
+shader_param/background_texture = ExtResource( 1 )
+shader_param/sky_texture = ExtResource( 3 )
+script = ExtResource( 2 )
