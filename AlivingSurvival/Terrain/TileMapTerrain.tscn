@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Terrain/TileSetTerrain.tres" type="TileSet" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void vertex(){
+	
+}
+
+void fragment(){
+	vec4 texColor = texture(TEXTURE, UV);
+	vec3 c = texColor.xyz;
+	c = (c+vec3(0, 0, .4))*.35;
+	COLOR = vec4(c,texColor.w);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="Layer_0" type="TileMap"]
+material = SubResource( 2 )
+position = Vector2( 0, -1 )
+z_as_relative = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+cell_y_sort = true
+cell_clip_uv = true
+format = 1
