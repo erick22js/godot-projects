@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Player/MainPlayer.cs" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerRepresentation" type="Polygon2D" parent="."]
+position = Vector2( 160, 168 )
+color = Color( 0.054902, 0.690196, 1, 1 )
+offset = Vector2( 8, 8 )
+polygon = PoolVector2Array( -16, -32, 0, -32, 0, 0, -16, 0 )
+script = ExtResource( 1 )
+_nodepath_sword_obj = NodePath("../WeaponRepresentation")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 160, 96 )
+
+[node name="WeaponRepresentation" type="Polygon2D" parent="."]
+position = Vector2( 160, 168 )
+color = Color( 0.054902, 0.690196, 1, 1 )
+offset = Vector2( 8, 8 )
+polygon = PoolVector2Array( -16, -32, 0, -32, 0, 0, -16, 0 )
