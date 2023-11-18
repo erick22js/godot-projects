@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Script/Player.cs" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="Polygon2D" parent="."]
+position = Vector2( -30, -11 )
+color = Color( 0.388235, 1, 0.941176, 1 )
+polygon = PoolVector2Array( 604, 541, 602, 520, 591, 508, 590, 457, 567, 436, 540, 457, 538, 508, 525, 521, 523, 541, 546, 537, 564, 541, 580, 536 )
+script = ExtResource( 1 )
