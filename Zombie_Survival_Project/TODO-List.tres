@@ -1,0 +1,23 @@
+
+###########################################################
+ COISAS PARA FAZER
+###########################################################
+
+1. Mecânicas
+	1. Jogador:
+		[
+			Movimentos básicos de Jogador =(*)
+			Tiro e recarregamentos
+		]
+
+2. Visuais
+	1. Jogador:
+		[
+			-> Primeira pessoa:
+				Modelos de armas
+				Hud
+				Animações
+			-> Terceira pessoa:
+				Modelos de jogador
+				Animações
+		]

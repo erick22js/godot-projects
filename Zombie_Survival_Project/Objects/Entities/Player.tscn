@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Control/PlayerMoviment.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Objects/Shotgun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Gameplay/GunBehaviors/GunHolder.gd" type="Script" id=3]
+
+[sub_resource type="CylinderShape" id=1]
+height = 4.0
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+cam_node = NodePath("Camera")
+gholder_node = NodePath("GunHolder")
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+height = 4.0
+sides = 16
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.51464, 0.0422491 )
+far = 1000.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+shape = SubResource( 1 )
+
+[node name="GunHolder" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15677, 2.82816, -1.05754 )
+script = ExtResource( 3 )
+cam_node = NodePath("../Camera")
+gun_node = NodePath("Shotgun")
+
+[node name="Shotgun" parent="GunHolder" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )

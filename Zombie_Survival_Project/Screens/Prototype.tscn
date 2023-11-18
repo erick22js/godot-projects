@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Entities/Player.tscn" type="PackedScene" id=1]
+
+[node name="Global" type="Spatial"]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 3.99118, 0, 0, 0, 3.99118, 0, 0, 0, 3.99118, 2.8738, -1.03613, -0.167103 )
+width = 9.50971
+height = 0.254318
+depth = 12.6491
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 3.99118, 0, 0, 0, 3.44863, -2.00909, 0, 2.00909, 3.44863, 8.26421, 1.72892, -18.7049 )
+width = 5.14418
+height = 0.611544
+depth = 3.44205
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 3.99118, 0, 0, 0, 3.99118, 0, 0, 0, 3.99118, -10.1857, 1.28491, 18.8167 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5918, -0.528615, 0.459261 )
