@@ -1,0 +1,452 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scripts/draw.gd" type="Script" id=1]
+[ext_resource path="res://imgs/world.png" type="Texture" id=2]
+[ext_resource path="res://scripts/gameplay.gd" type="Script" id=3]
+[ext_resource path="res://scripts/layouts/camera.gd" type="Script" id=4]
+[ext_resource path="res://fonts/main.tres" type="DynamicFont" id=5]
+[ext_resource path="res://imgs/info.png" type="Texture" id=6]
+[ext_resource path="res://imgs/medical.png" type="Texture" id=7]
+[ext_resource path="res://imgs/house.png" type="Texture" id=8]
+[ext_resource path="res://imgs/shop.png" type="Texture" id=9]
+[ext_resource path="res://imgs/industry.png" type="Texture" id=10]
+[ext_resource path="res://scripts/layouts/CountryManager.gd" type="Script" id=11]
+[ext_resource path="res://imgs/send.png" type="Texture" id=12]
+[ext_resource path="res://imgs/ship.png" type="Texture" id=13]
+[ext_resource path="res://scripts/layouts/presentSend.gd" type="Script" id=14]
+[ext_resource path="res://extras/bar_style.tres" type="StyleBox" id=15]
+[ext_resource path="res://imgs/people.png" type="Texture" id=16]
+[ext_resource path="res://imgs/money.png" type="Texture" id=17]
+[ext_resource path="res://imgs/soldier.png" type="Texture" id=18]
+
+[node name="Node2D" type="Node2D"]
+light_mask = -2147483647
+script = ExtResource( 3 )
+
+[node name="worldMap" type="Sprite" parent="."]
+modulate = Color( 0.0784314, 0.152941, 0.917647, 1 )
+texture = ExtResource( 2 )
+offset = Vector2( 1754, 1240 )
+
+[node name="Tela" type="CanvasModulate" parent="."]
+script = ExtResource( 1 )
+entitiesSprites = {
+"ship": ExtResource( 13 )
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 1127.23, 1262.52 )
+current = true
+script = ExtResource( 4 )
+
+[node name="Label_date" type="Label" parent="Camera"]
+margin_left = 184.77
+margin_top = -222.52
+margin_right = 285.77
+margin_bottom = -203.52
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "1 / 1 / 1900"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountryInfo" type="Node2D" parent="Camera"]
+visible = false
+position = Vector2( -1127.23, -1262.52 )
+
+[node name="Panel_Bottom" type="ColorRect" parent="Camera/CountryInfo"]
+margin_left = 720.0
+margin_top = 1376.0
+margin_right = 760.0
+margin_bottom = 1504.0
+rect_scale = Vector2( 20.366, 1 )
+color = Color( 0.521569, 0.454902, 0.964706, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label_countryName" type="Label" parent="Camera/CountryInfo"]
+margin_left = 752.0
+margin_top = 1392.0
+margin_right = 853.0
+margin_bottom = 1411.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Nome de País"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_population" type="Label" parent="Camera/CountryInfo"]
+margin_left = 752.0
+margin_top = 1440.0
+margin_right = 927.0
+margin_bottom = 1459.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "População: 9999999999"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_money" type="Label" parent="Camera/CountryInfo"]
+margin_left = 752.0
+margin_top = 1468.5
+margin_right = 927.0
+margin_bottom = 1487.5
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Economia: R$ 999999999999999.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_manager" type="Button" parent="Camera/CountryInfo"]
+margin_left = 1456.0
+margin_top = 1392.0
+margin_right = 1532.0
+margin_bottom = 1462.0
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_send" type="Button" parent="Camera/CountryInfo"]
+margin_left = 1456.0
+margin_top = 1448.0
+margin_right = 1532.0
+margin_bottom = 1518.0
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountryManager" type="Node2D" parent="Camera"]
+visible = false
+script = ExtResource( 11 )
+
+[node name="Panel_Background" type="ColorRect" parent="Camera/CountryManager"]
+margin_left = -407.0
+margin_top = -238.52
+margin_right = -367.0
+margin_bottom = -96.52
+rect_scale = Vector2( 20.3665, 3.39033 )
+color = Color( 0.521569, 0.454902, 0.964706, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panel_Top" type="ColorRect" parent="Camera/CountryManager"]
+margin_left = -407.0
+margin_top = -239.0
+margin_right = -367.0
+margin_bottom = -215.0
+rect_scale = Vector2( 20.3665, 3.39033 )
+color = Color( 0.380392, 0.337255, 0.666667, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="icon_houses" type="Sprite" parent="Camera/CountryManager"]
+position = Vector2( -343.23, -46.52 )
+texture = ExtResource( 8 )
+
+[node name="icon_services" type="Sprite" parent="Camera/CountryManager"]
+position = Vector2( -343.23, 33.48 )
+texture = ExtResource( 7 )
+
+[node name="icon_commercials" type="Sprite" parent="Camera/CountryManager"]
+position = Vector2( -343.23, 113.48 )
+texture = ExtResource( 9 )
+
+[node name="icon_industrials" type="Sprite" parent="Camera/CountryManager"]
+position = Vector2( -343.23, 193.48 )
+texture = ExtResource( 10 )
+
+[node name="Label_money" type="Label" parent="Camera/CountryManager"]
+margin_left = 72.77
+margin_top = -142.52
+margin_right = 286.77
+margin_bottom = -121.52
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "$ 999.999.999.999.999.999"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_rent" type="Label" parent="Camera/CountryManager"]
+margin_left = 153.0
+margin_top = -111.0
+margin_right = 314.0
+margin_bottom = -90.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.129412, 0.996078, 0.0156863, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "$ 999.999 / dia"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_buildHouse" type="Button" parent="Camera/CountryManager"]
+margin_left = 24.77
+margin_top = -78.52
+margin_right = 99.77
+margin_bottom = -35.52
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Construir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_buildService" type="Button" parent="Camera/CountryManager"]
+margin_left = 24.77
+margin_top = 2.47998
+margin_right = 98.77
+margin_bottom = 45.48
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Construir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_buildCommercial" type="Button" parent="Camera/CountryManager"]
+margin_left = 24.77
+margin_top = 82.48
+margin_right = 98.77
+margin_bottom = 125.48
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Construir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_buildIndustry" type="Button" parent="Camera/CountryManager"]
+margin_left = 24.77
+margin_top = 162.48
+margin_right = 98.77
+margin_bottom = 205.48
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Construir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_mechandise" type="Button" parent="Camera/CountryManager"]
+margin_left = 153.0
+margin_top = 161.0
+margin_right = 306.0
+margin_bottom = 204.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Mercadoria"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_house" type="Label" parent="Camera/CountryManager"]
+margin_left = -295.0
+margin_top = -79.0
+margin_right = -92.0
+margin_bottom = -38.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Casas: 0
+$ 100.0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_service" type="Label" parent="Camera/CountryManager"]
+margin_left = -295.0
+margin_right = -92.0
+margin_bottom = 41.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Serviços: 0
+$ 100.0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_commerces" type="Label" parent="Camera/CountryManager"]
+margin_left = -295.0
+margin_top = 82.0
+margin_right = -92.0
+margin_bottom = 123.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Comércios: 0
+$ 100.0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_industry" type="Label" parent="Camera/CountryManager"]
+margin_left = -295.0
+margin_top = 162.0
+margin_right = -92.0
+margin_bottom = 203.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Industrias: 0
+$ 100.0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_back" type="Button" parent="Camera/CountryManager"]
+margin_left = 264.77
+margin_top = 82.48
+margin_right = 342.77
+margin_bottom = 114.48
+rect_scale = Vector2( 1.5, 1.5 )
+text = "voltar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopulationSatisfation" type="ProgressBar" parent="Camera/CountryManager"]
+margin_left = -375.0
+margin_top = -143.0
+margin_right = -155.0
+margin_bottom = -129.0
+rect_scale = Vector2( 2, 2 )
+custom_styles/fg = ExtResource( 15 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+max_value = 1.0
+value = 0.5
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PresentSend" type="Node2D" parent="Camera"]
+visible = false
+script = ExtResource( 14 )
+
+[node name="Panel_Center" type="ColorRect" parent="Camera/PresentSend"]
+margin_left = -351.23
+margin_top = -110.52
+margin_right = 352.77
+margin_bottom = 105.48
+color = Color( 0.686275, 0.639216, 1, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Set_quantity_send" type="HSlider" parent="Camera/PresentSend"]
+margin_left = -327.23
+margin_top = -22.52
+margin_right = -65.23
+margin_bottom = 1.47998
+rect_scale = Vector2( 2.5, 2.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_confirm_send" type="Button" parent="Camera/PresentSend"]
+margin_left = 264.77
+margin_top = 37.48
+margin_right = 340.77
+margin_bottom = 107.48
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_money_option" type="Button" parent="Camera/PresentSend"]
+margin_left = -327.23
+margin_top = -94.52
+margin_right = -251.23
+margin_bottom = -24.52
+shortcut_in_tooltip = false
+icon = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_people_option" type="Button" parent="Camera/PresentSend"]
+margin_left = -231.23
+margin_top = -94.52
+margin_right = -155.23
+margin_bottom = -24.52
+shortcut_in_tooltip = false
+icon = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_soldier_option" type="Button" parent="Camera/PresentSend"]
+margin_left = -135.23
+margin_top = -94.52
+margin_right = -59.23
+margin_bottom = -24.52
+shortcut_in_tooltip = false
+icon = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_date2" type="Label" parent="Camera/PresentSend"]
+margin_left = -327.23
+margin_top = 49.48
+margin_right = -226.23
+margin_bottom = 68.48
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "R$ 200,00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Camera/CountryInfo/Button_manager" to="Camera" method="_on_Button_manager_pressed"]
+[connection signal="pressed" from="Camera/CountryInfo/Button_send" to="Camera/PresentSend" method="_on_Button_send_pressed"]
+[connection signal="pressed" from="Camera/CountryManager/Button_buildHouse" to="Camera/CountryManager" method="_on_Button_buildHouse_pressed"]
+[connection signal="pressed" from="Camera/CountryManager/Button_buildService" to="Camera/CountryManager" method="_on_Button_buildService_pressed"]
+[connection signal="pressed" from="Camera/CountryManager/Button_buildCommercial" to="Camera/CountryManager" method="_on_Button_buildCommercial_pressed"]
+[connection signal="pressed" from="Camera/CountryManager/Button_buildIndustry" to="Camera/CountryManager" method="_on_Button_buildIndustry_pressed"]
+[connection signal="pressed" from="Camera/CountryManager/Button_mechandise" to="Camera/CountryManager" method="_on_Button_mechandise_pressed"]
+[connection signal="pressed" from="Camera/CountryManager/Button_back" to="Camera/CountryManager" method="_on_Button_back_pressed"]
+[connection signal="pressed" from="Camera/PresentSend/Button_confirm_send" to="Camera/PresentSend" method="_on_Button_confirm_send_pressed"]
+[connection signal="pressed" from="Camera/PresentSend/Button_money_option" to="Camera/PresentSend" method="_on_Button_confirm_send_pressed"]
+[connection signal="pressed" from="Camera/PresentSend/Button_people_option" to="Camera/PresentSend" method="_on_Button_confirm_send_pressed"]
+[connection signal="pressed" from="Camera/PresentSend/Button_soldier_option" to="Camera/PresentSend" method="_on_Button_confirm_send_pressed"]

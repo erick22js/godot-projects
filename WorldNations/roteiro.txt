@@ -1,0 +1,16 @@
+
+
+mecanicas de jogo
+
+elementos de um país:
+casas, comércios, serviços, indústrias
+
+Casas -> Abrigam as pessoas, permitem aumento populacional. A população aumenta em 4 pessoas por casa.
+
+Comércios -> Vendem produtos, produzem renda ao governo
+	para funcionar, precisam de vendedores e compradores, precisam ao menos de 8 pessoas por comércio e 1 indústria para cada 8 comércios.
+
+Serviços -> Prestações de serviços á população, quanto maior a população, mais exigentes serão, e requisitarão serviços ao governo para não se rebelarem; serviços cobram taxas de funcionamento ao governo
+
+Indústrias -> Fazem a produção de produtos alimentícios, materiais, objetos e componentes, são recursos utilizados pela população, mas podem ser vendidos para o mercado exterior.
+	são necessários ao menos 16 pessoas por indústrias para se construir
