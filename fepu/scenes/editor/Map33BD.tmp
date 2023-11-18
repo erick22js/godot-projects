@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6rgqciffjuf5"]
+
+[ext_resource type="Script" path="res://scripts/editor/map/Display.gd" id="1_kslu8"]
+
+[node name="MapEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Display" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 133.0
+offset_right = 949.0
+offset_bottom = 542.0
+script = ExtResource("1_kslu8")

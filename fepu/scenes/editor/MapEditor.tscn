@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6rgqciffjuf5"]
+
+[ext_resource type="Script" path="res://scripts/editor/map/Display.gd" id="1_kslu8"]
+[ext_resource type="Script" path="res://scripts/editor/map/MapEditor.gd" id="1_p18qt"]
+[ext_resource type="Script" path="res://scripts/editor/map/Canvas.gd" id="2_ihgsl"]
+[ext_resource type="Script" path="res://scripts/editor/map/Space.gd" id="4_ts4h6"]
+[ext_resource type="Script" path="res://scripts/_test/travel.gd" id="4_x66at"]
+
+[node name="MapEditor" type="Node3D"]
+
+[node name="ui2d" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p18qt")
+
+[node name="Display" type="ColorRect" parent="ui2d"]
+clip_children = 2
+layout_mode = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 832.0
+offset_bottom = 632.0
+color = Color(0.329412, 0.329412, 0.329412, 1)
+script = ExtResource("1_kslu8")
+
+[node name="Canvas" type="Node2D" parent="ui2d/Display"]
+script = ExtResource("2_ihgsl")
+
+[node name="ModeText" type="Label" parent="ui2d/Display"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 64.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 28
+text = "Mode"
+
+[node name="DbgText" type="Label" parent="ui2d"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 16.0
+offset_right = 1144.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 28
+text = "Info: [Not Available]"
+
+[node name="TestButton" type="Button" parent="ui2d"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 552.0
+offset_right = 1136.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 48
+text = "Test"
+
+[node name="Viewer" type="Camera3D" parent="."]
+transform = Transform3D(-0.732543, -0.391418, 0.556932, 0, 0.81815, 0.575005, -0.680721, 0.421216, -0.59933, 3.22737, 3.12053, -3.63435)
+current = true
+size = 3.595
+script = ExtResource("4_x66at")
+
+[node name="Space" type="Node3D" parent="."]
+script = ExtResource("4_ts4h6")
+
+[connection signal="mouse_entered" from="ui2d/Display" to="ui2d/Display" method="_onMouseEntered"]
+[connection signal="mouse_exited" from="ui2d/Display" to="ui2d/Display" method="_onMouseExited"]
+[connection signal="pressed" from="ui2d/TestButton" to="ui2d" method="_onTestButtonPressed"]

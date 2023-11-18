@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6rgqciffjuf5"]
+
+[ext_resource type="Script" path="res://scripts/editor/map/Display.gd" id="1_kslu8"]
+[ext_resource type="Script" path="res://scripts/editor/map/MapEditor.gd" id="1_p18qt"]
+[ext_resource type="Script" path="res://scripts/editor/map/Canvas.gd" id="2_ihgsl"]
+
+[node name="MapEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p18qt")
+
+[node name="Display" type="ColorRect" parent="."]
+clip_children = 2
+layout_mode = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 832.0
+offset_bottom = 632.0
+color = Color(0.329412, 0.329412, 0.329412, 1)
+script = ExtResource("1_kslu8")
+
+[node name="Canvas" type="Node2D" parent="Display"]
+script = ExtResource("2_ihgsl")
+
+[node name="ModeText" type="Label" parent="Display"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 64.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 28
+text = "Mode"
+
+[node name="DbgText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 16.0
+offset_right = 1144.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 28
+text = "Info: [Not Available]"
+
+[connection signal="mouse_entered" from="Display" to="Display" method="_onMouseEntered"]
+[connection signal="mouse_exited" from="Display" to="Display" method="_onMouseExited"]

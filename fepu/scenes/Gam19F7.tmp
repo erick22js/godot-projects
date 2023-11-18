@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmpqa0lns7pus"]
+
+[ext_resource type="Script" path="res://scripts/_test/GameRuntime.gd" id="1_bc0wb"]
+[ext_resource type="Script" path="res://scripts/_test/travel.gd" id="2_b6ok6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5eyr"]
+
+[node name="GameRuntime" type="Node3D"]
+script = ExtResource("1_bc0wb")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.165048, 0, -0.986286, 0, 1, 0, 0.986286, 0, 0.165048, 17.946, 41.126, -58.348)
+current = true
+script = ExtResource("2_b6ok6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("ShaderMaterial_p5eyr")
