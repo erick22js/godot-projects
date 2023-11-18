@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/characters/npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/characters/player.tscn" type="PackedScene" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Scenario" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Scenario"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827504, -0.180599, -0.579915 )
+width = 50.4168
+height = 0.179079
+depth = 50.9484
+
+[node name="CSGBox2" type="CSGBox" parent="Scenario"]
+transform = Transform( 0.997154, 0.0753963, 0, -0.0753963, 0.997154, 0, 0, 0, 1, -16.872, 0.440776, 12.9483 )
+width = 20.6638
+height = 0.179079
+depth = 21.2018
+
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="Npc-01" parent="Objects" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1048, 1.12781, 18.8184 )
+
+[node name="Player" parent="Objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368478, 1.12781, -2.41212 )

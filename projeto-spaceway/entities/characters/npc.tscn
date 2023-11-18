@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/characters/components/human-physic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/characters/components/human-look.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/characters/npc.gd" type="Script" id=3]
+
+[node name="Npc" type="KinematicBody"]
+script = ExtResource( 3 )
+
+[node name="Body" parent="." instance=ExtResource( 1 )]
+body_node = NodePath("..")
+
+[node name="Look" parent="Body" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.18557e-08, 0.5 )
