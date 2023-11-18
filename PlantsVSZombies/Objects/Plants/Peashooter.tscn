@@ -1,0 +1,305 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/hole.tres" type="Texture" id=1]
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/back.tres" type="Texture" id=2]
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/stalk.tres" type="Texture" id=3]
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/head.tres" type="Texture" id=4]
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/leaf.tres" type="Texture" id=5]
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/mouth.tres" type="Texture" id=6]
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/eye1_open.tres" type="Texture" id=7]
+[ext_resource path="res://Atlas/Gameplay/Plants/Peashooter/neck.tres" type="Texture" id=8]
+[ext_resource path="res://packages/plants.gd" type="Script" id=9]
+[ext_resource path="res://Objects/Projectiles/pea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://packages/colision.gd" type="Script" id=11]
+[ext_resource path="res://Objects/sound_player.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.6, 0.7, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.833333, -25.8333 ), Vector2( 4.16667, -26.6667 ), Vector2( 5.83333, -27.5 ), Vector2( 4.16667, -26.6667 ), Vector2( 0.833333, -25.8333 ), Vector2( -2.5, -26.6667 ), Vector2( -3.33333, -27.5 ), Vector2( -2.5, -26.6667 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("stalk:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.6, 0.7, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 9.0, 15.0, 21.0, 15.0, 9.0, -6.0, -9.0, -6.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("stalk:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.5, 12.5 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "shoot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("head/mouth:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.800001, 1.3911 ), Vector2( 1.13333, 1.06667 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("head/mouth/hole:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.879538, 1 ), Vector2( 0.879538, 1.11194 ), Vector2( 0.925568, 1.11194 ), Vector2( 0.879538, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("head/eye2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 28.3333, -11.6667 ), Vector2( 26.6667, -13.3334 ), Vector2( 28.3333, -11.6667 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -6.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("head/back:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -46.6667, -8.33339 ), Vector2( -49.2034, -10.1991 ), Vector2( -48.1423, -7.92966 ), Vector2( -46.6667, -8.33339 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("head/back:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 33.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "tisk"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("head/eye1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.0576925 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("head/eye1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12.3333, -8.33337 ), Vector2( 12.3333, -8.33337 ), Vector2( 12.3333, -8.33337 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("head/eye2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 0.6, 0.0179503 ), Vector2( 0.6, 0.6 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "damage"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1.8, 1.8, 1.8, 1 ), Color( 1.8, 1.8, 1.8, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 15, 29 )
+
+[node name="Base" type="Node2D"]
+position = Vector2( -1, -5 )
+script = ExtResource( 9 )
+specie = "peashooter"
+animation_Mod = {
+"body": NodePath("Body/body_animation"),
+"effect": NodePath("Body/effect"),
+"mouth": NodePath("Body/mouth_animation")
+}
+projectiles_Mod = {
+"pea": ExtResource( 10 )
+}
+points = {
+"mouth": NodePath("Body/head/mouth/hole/aim")
+}
+audio_player = NodePath("sound_player")
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2( -1, -8 )
+
+[node name="body_animation" type="AnimationPlayer" parent="Body"]
+method_call_mode = 1
+anims/idle = SubResource( 1 )
+
+[node name="mouth_animation" type="AnimationPlayer" parent="Body"]
+method_call_mode = 1
+anims/shoot = SubResource( 2 )
+
+[node name="eyes_animation" type="AnimationPlayer" parent="Body"]
+method_call_mode = 1
+anims/tisk = SubResource( 3 )
+
+[node name="effect" type="AnimationPlayer" parent="Body"]
+anims/damage = SubResource( 4 )
+
+[node name="leaf3" type="Sprite" parent="Body"]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+position = Vector2( 6, 7 )
+rotation = -0.541052
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
+
+[node name="leaf4" type="Sprite" parent="Body"]
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+position = Vector2( -6, 7 )
+rotation = 0.541052
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="stalk" type="Sprite" parent="Body"]
+position = Vector2( 2.5, 12.5 )
+rotation = 0.15708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+offset = Vector2( -3.16667, -12.5 )
+
+[node name="leaf" type="Sprite" parent="Body"]
+position = Vector2( 9, 13 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="leaf2" type="Sprite" parent="Body"]
+position = Vector2( -7, 13 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="head" type="Sprite" parent="Body"]
+position = Vector2( 0.833333, -25.8333 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="neck" type="Sprite" parent="Body/head"]
+show_behind_parent = true
+position = Vector2( 0.164081, 37.8151 )
+texture = ExtResource( 8 )
+
+[node name="back" type="Sprite" parent="Body/head"]
+show_behind_parent = true
+position = Vector2( -46.6667, -8.33339 )
+texture = ExtResource( 2 )
+
+[node name="eye1" type="Sprite" parent="Body/head"]
+position = Vector2( 12.3333, -8.33337 )
+texture = ExtResource( 7 )
+
+[node name="eye2" type="Sprite" parent="Body/head"]
+position = Vector2( 28.3333, -12.3335 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+
+[node name="mouth" type="Sprite" parent="Body/head"]
+position = Vector2( 46.6667, 8.33327 )
+texture = ExtResource( 6 )
+
+[node name="hole" type="Sprite" parent="Body/head/mouth"]
+position = Vector2( 3.3333, 2 )
+scale = Vector2( 0.879538, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( -1.51591, 0 )
+
+[node name="aim" type="Node2D" parent="Body/head/mouth/hole"]
+position = Vector2( 0.378986, -0.666672 )
+
+[node name="ColisionOBJ" type="Area2D" parent="Body"]
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/ColisionOBJ"]
+position = Vector2( 2, -13 )
+shape = SubResource( 5 )
+
+[node name="sound_player" parent="." instance=ExtResource( 12 )]

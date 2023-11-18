@@ -1,0 +1,36 @@
+{
+	"states":{
+		"idle":{
+			"action":"nothing"
+		},
+		"walking":{
+			"action":"walk",
+			"speed_multiplier":1,
+			"animation":{
+				"from":"body",
+				"play":"walking"
+			},
+		},
+		"#eating":{
+			"action":"nothing",
+			"on_end_cycle":{
+				
+			},
+			"animation":{
+				"from":"body",
+				"play":"eating"
+			},
+		}
+	},
+	"events":[
+		
+	],
+	"constants":{
+		
+	},
+	"properties":{
+		"health":10,
+		"state":"walking",
+		"targetPlant":null
+	}
+}
