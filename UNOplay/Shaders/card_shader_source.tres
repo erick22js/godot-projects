@@ -1,0 +1,17 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+uniform sampler2D uno_texture;
+uniform vec2 face;
+
+void vertex(){
+	
+}
+
+void fragment(){
+	vec4 color = texture(uno_texture, UV/vec2(12.0, 6.0)+face/vec2(12.0, 6.0));
+	ALPHA = color.a<1.0?0.0:1.0;
+	ALBEDO = color.rgb;
+}"
